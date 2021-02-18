@@ -1,8 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const App = (props) => {
   const [state, setState] = useState(props);
   const {name, price} = state;
+
+  useEffect(() => {
+    console.log('this is like componentDidMount or compnentDidUpdate.');
+  });
+
+  useEffect(() => {
+    console.log('this is like componentDidMount.');
+  }, []);
+
+  useEffect(() => {
+    console.log('this callback is for name only.');
+  }, [name]);
 
   const reset = () => {
     setState(props);
